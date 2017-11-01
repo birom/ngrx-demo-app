@@ -2,13 +2,13 @@ import { CircleState } from './circle.state';
 import { Actions, CHANGE_COLOR, MOVE_CIRCLE } from './circle.actions';
 
 const colors = ['red', 'blue', 'green'];
-const initalState: CircleState = {
+const initialState: CircleState = {
   x: 250,
   y: 250,
   color: 'red'
 };
 
-export function circleReducer(state = initalState, action: Actions) {
+export function circleReducer(state = initialState, action: Actions) {
   let newState;
   switch (action.type) {
     case MOVE_CIRCLE:
