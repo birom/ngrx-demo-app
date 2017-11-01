@@ -9,6 +9,9 @@ import { CircleBoxComponent } from './circle-box.component';
 import { TrackingDataComponent } from './tracking-data.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CircleEffects } from './state-management/circle.effects';
+import { ColorService } from './color.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -20,10 +23,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     StoreModule.forRoot({ 'circle': circleReducer }),
-    EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25 })
+    EffectsModule.forRoot([CircleEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    ColorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
