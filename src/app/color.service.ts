@@ -7,9 +7,9 @@ export class ColorService {
   constructor(private http: Http) {
   }
 
-  getColorCode(color: string): Observable<string> {
-    return this.http.get(`./assets/colors/${color}.json`, {})
+  getColor(index: number): Observable<[string, string]> {
+    return this.http.get(`./assets/colors/${index}.json`, {})
       .map((res: Response) => res.json())
-      .map((resJson: any) => resJson.code);
+      .map((resJson: any) => [resJson.color, resJson.code]);
   }
 }

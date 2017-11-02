@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-export const colors = ['red', 'blue', 'green'];
 export interface CircleState {
   x: number;
   y: number;

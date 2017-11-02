@@ -6,12 +6,17 @@ import { CircleState, getColor, getX, getY } from './state-management/circle.sta
 @Component({
   selector: 'app-tracking-data',
   template: `
-    <div>
+    <div class="tracking-data">
       <span>Coordinate X: {{x$ | async}}</span>
       <span>Coordinate Y: {{y$ | async}}</span>
       <span>Color: {{color$ | async}}</span>
     </div>`,
-  styles: []
+  styles: [`
+    .tracking-data {
+      border: 1px solid #0000ff;
+      width: 500px;
+    }
+  `]
 })
 export class TrackingDataComponent {
   x$: Observable<number>;
