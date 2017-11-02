@@ -1,11 +1,9 @@
 import { CircleState } from './circle.state';
-import { Actions, CHANGE_COLOR, MOVE_CIRCLE } from './circle.actions';
+import { Actions, MOVE_CIRCLE } from './circle.actions';
 
-const colors = ['red', 'blue', 'green'];
 const initialState: CircleState = {
   x: 250,
-  y: 250,
-  color: 'red'
+  y: 250
 };
 
 export function circleReducer(state = initialState, action: Actions) {
@@ -14,11 +12,6 @@ export function circleReducer(state = initialState, action: Actions) {
     case MOVE_CIRCLE:
       const { x, y } = action.payload;
       newState = Object.assign({}, state, { x, y });
-      break;
-
-    case CHANGE_COLOR:
-      const color = colors[(colors.indexOf(state.color) + 1) % 3];
-      newState = Object.assign({}, state, { color });
       break;
 
     default:

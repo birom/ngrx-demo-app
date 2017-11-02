@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ChangeColorAction, MoveCircleAction } from './state-management/circle.actions';
+import { MoveCircleAction } from './state-management/circle.actions';
 import { CircleState } from './state-management/circle.state';
 
 @Component({
   selector: 'app-circle-box',
   template: `
-    <div class="circle-box" (mousemove)="move($event)" (click)="changeColor($event)">
+    <div class="circle-box" (mousemove)="move($event)">
     </div>`,
   styles: [
       `.circle-box {
@@ -18,10 +18,6 @@ import { CircleState } from './state-management/circle.state';
 })
 export class CircleBoxComponent {
   constructor(private store: Store<CircleState>) {
-  }
-
-  changeColor(e: any) {
-    this.store.dispatch(new ChangeColorAction());
   }
 
   move(e: MouseEvent) {
